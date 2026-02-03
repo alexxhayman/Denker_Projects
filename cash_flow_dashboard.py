@@ -40,7 +40,7 @@ def load_and_clean_data(file_path):
 
 # Load data
 try:
-    df = load_and_clean_data('/home/user/Denker_Projects/FLOWS Previous Month.csv')
+    df = load_and_clean_data(r'C:\Users\G1020065\Documents\Coding\AUM_and_Flows\FLOWS Previous Month.csv')
 
     # Dashboard Title
     st.title("💰 Cash Flow Dashboard - January 2026")
@@ -136,7 +136,7 @@ try:
         st.subheader("🏆 Top 50 Biggest Inflows")
 
         top_inflows = df[df['Flow_Type'] == 'Inflow'].nlargest(50, 'Value')[
-            ['Processing_Date', 'Client_Name_Selected', 'Entity_Name', 'Fund_Name',
+            ['Processing_Date', 'Client_Entity', 'Entity_Name', 'Fund_Name',
              'Transaction_type', 'Value', 'Units', 'Agent_Name']
         ].copy()
 
@@ -191,7 +191,7 @@ try:
         st.subheader("📉 Top 50 Biggest Outflows")
 
         top_outflows = df[df['Flow_Type'] == 'Outflow'].nsmallest(50, 'Value')[
-            ['Processing_Date', 'Client_Name_Selected', 'Entity_Name', 'Fund_Name',
+            ['Processing_Date', 'Client_Entity', 'Entity_Name', 'Fund_Name',
              'Transaction_type', 'Value', 'Units', 'Agent_Name']
         ].copy()
 
